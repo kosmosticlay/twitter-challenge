@@ -1,64 +1,17 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import { FirebaseError } from "firebase/app";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-
-const Wrapper = styled.div`
-  min-width: 360px;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Title = styled.h1`
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 30px;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const Input = styled.input`
-  min-width: 300px;
-  width: 300px;
-  height: 40px;
-  padding: 0 10px;
-  border-radius: 10px;
-  margin-bottom: 5px;
-`;
-
-const Button = styled.button`
-  min-width: 300px;
-  width: 300px;
-  height: 40px;
-  border-radius: 10px;
-  background-color: #0095f6;
-  color: white;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-`;
-
-const Error = styled.div`
-  font-weight: 600;
-  color: red;
-`;
-
-const StyledLink = styled(Link)`
-  margin-top: 30px;
-  color: #0095f6;
-  font-weight: 700;
-  cursor: pointer;
-`;
+import {
+  Button,
+  Error,
+  Form,
+  Input,
+  StyledLink,
+  Title,
+  Wrapper,
+} from "../components/auth-components";
 
 export default function CreateAccount() {
   const [isLoading, setIsLoading] = useState(false);
