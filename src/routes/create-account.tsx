@@ -3,6 +3,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { FirebaseError } from "firebase/app";
 
 const Wrapper = styled.div`
   min-width: 360px;
@@ -81,6 +82,8 @@ export default function CreateAccount() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError("");
+
     if (isLoading || name === "" || email === "" || password === "") return;
     try {
       setIsLoading(true);
@@ -95,7 +98,9 @@ export default function CreateAccount() {
       });
       navigate("/");
     } catch (error) {
-      //setError
+      if (error instanceof FirebaseError) {
+        setError(error.message);
+      }
     } finally {
       setIsLoading(false);
     }
