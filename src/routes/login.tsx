@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FirebaseError } from "firebase/app";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 const Wrapper = styled.div`
   min-width: 360px;
@@ -64,6 +66,7 @@ export default function CreateAccount() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { name, value },
@@ -82,6 +85,7 @@ export default function CreateAccount() {
     if (isLoading || email === "" || password === "") return;
     try {
       setIsLoading(true);
+      await signInWithEmailAndPassword(auth, email, password);
       navigate("/");
     } catch (error) {
       if (error instanceof FirebaseError) {
