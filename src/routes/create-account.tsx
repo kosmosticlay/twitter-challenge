@@ -12,6 +12,7 @@ import {
   Title,
   Wrapper,
 } from "../components/auth-components";
+import GithubButton from "../components/github-button";
 
 export default function CreateAccount() {
   const [isLoading, setIsLoading] = useState(false);
@@ -94,6 +95,7 @@ export default function CreateAccount() {
       </Form>
       {error !== "" ? <Error>{error}</Error> : null}
       <StyledLink to="/login">로그인</StyledLink>
+      <GithubButton />
     </Wrapper>
   );
 }
