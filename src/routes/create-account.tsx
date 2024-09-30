@@ -13,6 +13,7 @@ import {
   Wrapper,
 } from "../components/auth-components";
 import GithubButton from "../components/github-button";
+import EntranceLogo from "../components/logo/entrance-logo";
 
 export default function CreateAccount() {
   const [isLoading, setIsLoading] = useState(false);
@@ -62,6 +63,7 @@ export default function CreateAccount() {
 
   return (
     <Wrapper>
+      <EntranceLogo></EntranceLogo>
       <Title>계정 생성하기</Title>
       <Form onSubmit={handleSubmit}>
         <Input
