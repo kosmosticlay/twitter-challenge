@@ -9,10 +9,11 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: black;
 `;
 
 export const Title = styled.h1`
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 30px;
 `;

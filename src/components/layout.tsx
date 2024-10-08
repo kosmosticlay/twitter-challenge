@@ -3,18 +3,19 @@ import { styled } from "styled-components";
 import { auth } from "../firebase";
 
 const Wrapper = styled.div`
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr 4fr;
-  height: 100%;
-  padding: 50px 0px;
   width: 100%;
-  max-width: 860px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 4fr 2fr;
+  gap: 20px;
+  padding: 20px;
 `;
 
 const Menu = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   gap: 20px;
 `;
@@ -40,6 +41,47 @@ const MenuItem = styled.div`
   }
 `;
 
+const User = styled.div`
+  width: 100%;
+  height: 200px;
+`;
+
+const UserAvatar = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const UserImage = styled.img`
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #999999;
+  background-image: url("https://cdn.pixabay.com/photo/2021/10/04/11/20/cosmos-6680031_1280.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+`;
+
+const UserEmotion = styled.div`
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  background-color: black;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  padding-bottom: 5px;
+`;
+
+const UserName = styled.p``;
+
 export default function Layout() {
   const navigate = useNavigate();
   const onLogOut = async () => {
@@ -52,6 +94,13 @@ export default function Layout() {
   return (
     <Wrapper>
       <Menu>
+        <User>
+          <UserAvatar>
+            <UserImage />
+            <UserEmotion>😮</UserEmotion>
+          </UserAvatar>
+          <UserName>kosmosticlay</UserName>
+        </User>
         <Link to="/">
           <MenuItem>
             <svg

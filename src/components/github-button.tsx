@@ -17,7 +17,6 @@ const SocialLoginButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
 `;
 
 const Logo = styled.img`

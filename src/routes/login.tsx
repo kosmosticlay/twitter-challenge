@@ -76,9 +76,9 @@ export default function Login() {
         />
         <Button>{isLoading ? "로그인 중..." : "로그인 하기"}</Button>
       </Form>
+      <GithubButton />
       {error !== "" ? <Error>{error}</Error> : null}
       <StyledLink to="/create-account">계정 생성하기</StyledLink>
-      <GithubButton />
     </Wrapper>
   );
 }

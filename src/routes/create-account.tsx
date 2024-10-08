@@ -95,9 +95,9 @@ export default function CreateAccount() {
         />
         <Button>{isLoading ? "계정 생성 중..." : "계정 생성하기"}</Button>
       </Form>
-      {error !== "" ? <Error>{error}</Error> : null}
-      <StyledLink to="/login">로그인</StyledLink>
       <GithubButton />
+      {error !== "" ? <Error>{error}</Error> : null}
+      <StyledLink to="/login">이메일로 로그인하기</StyledLink>
     </Wrapper>
   );
 }

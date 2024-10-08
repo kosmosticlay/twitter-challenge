@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState, useRef } from "react";
 
 const Wrapper = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 `;
 
 const Emotion = styled(motion.div)`
